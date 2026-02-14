@@ -1,8 +1,11 @@
 const config = {
   name: {
-    firstName: "John Andrei",
-    lastName: "Tacujan",
+    first: "John Andrei",
+    last: "Tacujan", 
+    full: "John Andrei Tacujan",
   },
+  available: true,
+  
 };
 
 export default config;
