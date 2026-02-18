@@ -1,162 +1,154 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowDown } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import config from "@/lib/config";
 
-const MEMORY_ITEMS = [
-  { id: 1, rotation: -5, caption: "Late night thesis grind ☕️", color: "bg-zinc-800" },
-  { id: 2, rotation: 3, caption: "Winning the Hackathon 🏆", color: "bg-blue-800" },
-  { id: 3, rotation: -8, caption: "ChainAid Deployment Day 🚀", color: "bg-purple-900" },
-  { id: 4, rotation: 6, caption: "My view in Tarlac ⛰️", color: "bg-emerald-800" },
-];
-
-const HEADLINE_STYLES =
-  "text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter uppercase leading-[0.85]";
-
 export function Hero() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  const renderInteractiveText = (text: string, startIndex: number) => {
-    const words = text.split(" ");
-    let globalCharCount = startIndex;
-
-    return words.map((word, wordIndex) => {
-      const chunks = word.match(/.{1,2}/g) || [];
-
-      return (
-        <span key={wordIndex} className="inline-flex">
-          {chunks.map((chunk, i) => {
-            const itemIndex = globalCharCount % MEMORY_ITEMS.length;
-            globalCharCount++;
-
-            return (
-              <span
-                key={i}
-                className="inline-block select-none transition-colors duration-300 sm:hover:text-muted-foreground/50 sm:cursor-crosshair"
-                onMouseEnter={() => setActiveIndex(itemIndex)}
-                onMouseLeave={() => setActiveIndex(null)}
-              >
-                {chunk}
-              </span>
-            );
-          })}
-          {wordIndex < words.length - 1 && (
-            <span className="inline-block whitespace-pre text-foreground cursor-default">
-              {" "}
-            </span>
-          )}
-        </span>
-      );
-    });
-  };
-
   return (
-    <section className="min-h-fit lg:min-h-dvh bg-background pt-24 sm:pt-32 pb-12 px-4 sm:px-8 md:px-12 lg:px-16 flex flex-col relative overflow-hidden justify-start lg:justify-between items-center lg:items-stretch gap-12 lg:gap-0">
-      {/* Header */}
-      <div className="z-10 flex flex-col items-center lg:items-start select-none pointer-events-none relative w-full">
-        <h1 className={`${HEADLINE_STYLES} text-foreground z-30 mix-blend-difference`}>
-          SOFTWARE
-        </h1>
-        <h1 className={`${HEADLINE_STYLES} text-muted-foreground lg:text-muted-foreground/50 ml-0 lg:ml-16 xl:ml-24 -mt-2 lg:-mt-4 xl:-mt-6 z-10`}>
-          DEVELOPER
-        </h1>
-      </div>
-
-      {/* Portrait */}
-      <div className="relative w-fit z-10 pointer-events-none mx-auto lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:left-12 xl:left-24">
-        <div className="absolute inset-0 -z-10 opacity-0 dark:opacity-100 transition-opacity duration-500">
-          <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8)_0%,rgba(255,255,255,0)_70%)] blur-2xl scale-110" />
-        </div>
-        <div className="relative w-64 sm:w-80 md:w-96 lg:w-100 xl:w-112.5 aspect-square">
-          <Image
-            src="/draw_me_1x1_no_bg.png"
-            alt="Portrait"
-            fill
-            className="object-contain transition-transform duration-700 hover:scale-105"
-            priority
-          />
-        </div>
-      </div>
-
-      {/* Bridge Text */}
-      <div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 right-12 xl:right-32 items-center gap-4 z-10">
-        <div className="hidden xl:block w-24 h-px bg-border" />
-        <div className="flex flex-col items-end text-right">
-          <span className="font-handwriting text-xl xl:text-2xl text-muted-foreground/60 -rotate-2">
-            ( hover to see my journey )
+    <section id="hero" className="bg-background text-foreground min-h-dvh flex flex-col pt-14">
+      {/* MAIN HERO CONTENT */}
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-12">
+        {/* LEFT: SECTION NUMBER */}
+        <div className="hidden lg:flex lg:col-span-1 border-r border-border p-6 flex-col justify-between">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+            00
           </span>
-          <span className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
-            Based in Tarlac, PH
-          </span>
+          <div className="flex flex-col gap-2">
+            <ArrowDown className="w-5 h-5 text-muted-foreground animate-bounce" />
+            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground [writing-mode:vertical-lr] rotate-180">
+              Scroll
+            </span>
+          </div>
         </div>
-      </div>
 
-      {/* Polaroid Popup */}
-      <div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 right-12 xl:right-32 z-20 items-center justify-center pointer-events-none">
-        <AnimatePresence mode="popLayout">
-          {activeIndex !== null && (
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, scale: 0.8, x: 50, rotate: 10 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                x: 0,
-                rotate: MEMORY_ITEMS[activeIndex].rotation,
-              }}
-              exit={{ opacity: 0, scale: 0.9, x: 20 }}
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="relative p-3 bg-white dark:bg-zinc-200 shadow-2xl transform-gpu border border-white/40 w-72 xl:w-80"
-            >
-              <div
-                className={`w-full aspect-4/3 ${MEMORY_ITEMS[activeIndex].color} relative overflow-hidden grayscale-20 contrast-125`}
-              >
-                <div className="absolute inset-0 bg-black/10 opacity-20 pointer-events-none" />
+        {/* CENTER: HEADLINE + IMAGE */}
+        <div className="lg:col-span-8 border-b lg:border-b-0 lg:border-r border-border flex flex-col">
+          {/* HEADLINE */}
+          <div className="p-8 lg:p-16 flex-1 flex flex-col justify-center">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter uppercase leading-[0.85]">
+              {config.name.first}
+              <br />
+              <span className="text-muted-foreground/40">{config.name.last}</span>
+            </h1>
+            <div className="mt-8 flex items-center gap-6">
+              <div className="w-16 h-px bg-border" />
+              <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground max-w-xs">
+                Building polished digital experiences with precision and care
+              </p>
+            </div>
+          </div>
+
+          {/* IMAGE ROW */}
+          <div className="border-t border-border">
+            <div className="grid grid-cols-3">
+              <div className="aspect-square relative dark:bg-gray-300 overflow-hidden">
+                <Image
+                  src="/draw_me_1x1_no_bg.png"
+                  alt="Portrait"
+                  fill
+                  className="object-contain grayscale hover:grayscale-0  transition-all duration-500"
+                  priority
+                />
               </div>
-              <div className="pt-4 pb-1 px-1">
-                <p className="font-handwriting text-zinc-800 text-xl xl:text-2xl text-center transform -rotate-1 opacity-90">
-                  {MEMORY_ITEMS[activeIndex].caption}
+              <div className="aspect-square bg-foreground flex items-center justify-center">
+                <a
+                  href="https://github.com/dreidev04"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter hover:text-primary transition-colors"
+                >
+                  DREIDEV04
+                </a>
+              </div>
+              <div className="aspect-square bg-muted flex items-center justify-center p-6">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground text-center leading-relaxed">
+                  Turning ideas into functional, elegant code since 2021
                 </p>
               </div>
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-8 bg-white/30 backdrop-blur-sm border border-white/40 rotate-1 shadow-sm opacity-60" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+            </div>
+          </div>
+        </div>
 
-      {/* Name */}
-      <div className="flex items-end justify-center lg:justify-end mt-auto lg:mt-0 relative z-20">
-        <div className="flex flex-col items-center lg:items-end text-center lg:text-right">
-          <h2 className={`${HEADLINE_STYLES} text-foreground`}>
-            <span className="block lg:hidden">{config.name.first}</span>
-            <span className="hidden lg:block">
-              {renderInteractiveText(config.name.first, 0)}
+        {/* RIGHT: INFO PANEL */}
+        <div className="lg:col-span-3 flex flex-col">
+          {/* INTRO */}
+          <div className="p-8 lg:p-10 flex-1 flex flex-col justify-center border-b border-border">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-4">
+              Introduction
             </span>
-          </h2>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-widest text-primary uppercase mt-2 lg:-mt-2 mr-0 lg:mr-1">
-            {config.name.last}
-          </h3>
+            <p className="text-lg font-light leading-relaxed text-foreground">
+              A developer who crafts digital experiences with meticulous attention to detail and clean architecture.
+            </p>
+          </div>
+
+          {/* TECH STACK */}
+          <div className="p-8 lg:p-10 border-b border-border">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-4">
+              Tech Stack
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {config.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1.5 text-xs font-medium bg-muted border border-border text-foreground"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <Link
+            href="#contact"
+            className="group flex items-center justify-between p-8 lg:p-10 hover:bg-foreground hover:text-background transition-colors"
+          >
+            <div>
+              <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground group-hover:text-background/60 block mb-2">
+                Get in Touch
+              </span>
+              <span className="text-xl font-bold tracking-tight">
+                Start a Project
+              </span>
+            </div>
+            <ArrowUpRight className="w-6 h-6 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
 
-      {/* Footer Info */}
-      <div className="absolute bottom-12 left-12 max-w-xs hidden lg:flex flex-col gap-4">
-        <ArrowDown className="w-6 h-6 animate-bounce text-foreground/80" strokeWidth={1.5} />
-        <p className="text-sm font-medium text-muted-foreground leading-relaxed uppercase tracking-wide">
-          Building polished digital experiences
-          <br />
-          with precision and care.
-        </p>
-      </div>
-
-      {/* Mobile Location Badge */}
-      <div className="lg:hidden text-center pb-8">
-        <span className="text-xs uppercase tracking-widest text-muted-foreground">
-          Based in Tarlac, PH
-        </span>
+      {/* BOTTOM INFO BAR */}
+      <div className="border-t border-border">
+        <div className="grid grid-cols-2 lg:grid-cols-4">
+          <div className="p-4 lg:p-6 border-r border-border">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+              Role
+            </span>
+            <p className="text-sm font-medium mt-1">Software Developer</p>
+          </div>
+          <div className="p-4 lg:p-6 lg:border-r border-border">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+              Location
+            </span>
+            <p className="text-sm font-medium mt-1">Tarlac, PH</p>
+          </div>
+          <div className="p-4 lg:p-6 border-r border-border border-t lg:border-t-0">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+              Status
+            </span>
+            <div className="flex items-center gap-2 mt-1">
+              <span className={`w-2 h-2 rounded-full ${config.available ? "bg-emerald-500" : "bg-amber-500"}`} />
+              <p className="text-sm font-medium">{config.available ? "Available" : "Busy"}</p>
+            </div>
+          </div>
+          <div className="p-4 lg:p-6 border-t lg:border-t-0">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+              Focus
+            </span>
+            <p className="text-sm font-medium mt-1">Web & Mobile</p>
+          </div>
+        </div>
       </div>
     </section>
   );
