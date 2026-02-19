@@ -50,7 +50,7 @@ export function Hero() {
             <div className="grid grid-cols-3">
               <div className="aspect-square relative dark:bg-gray-300 overflow-hidden">
                 <Image
-                  src="/draw_me_1x1_no_bg.png"
+                  src="/me/draw_me_1x1_no_bg.png"
                   alt="Portrait"
                   fill
                   className="object-contain grayscale hover:grayscale-0  transition-all duration-500"

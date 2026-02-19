@@ -83,7 +83,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={publicSans.variable} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/man-technologist.svg" type="image/svg" />
+        <link rel="icon" href="/icon/man-technologist.svg" type="image/svg" />
         <JsonLd />
       </head>
       <body
