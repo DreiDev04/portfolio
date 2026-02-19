@@ -5,25 +5,32 @@ const config = {
     last: "Tacujan",
     full: "John Andrei Tacujan",
   },
+  photos: {
+    me: "/me/1.png",
+  },
   available: true,
   role: "Software Developer",
   location: "Tarlac, PH",
-  focus: "Web & Mobile",
-  email: "hello@johntacujan.dev",
+  focus: "Web Development & Automation",
+  email: "tacujan.andrei@gmail.com",
   github: "https://github.com/dreidev04",
-  tagline: "Building polished digital experiences with precision and care",
+  tagline: "Building digital experiences with precision and care",
   intro:
-    "A developer who crafts digital experiences with meticulous attention to detail and clean architecture.",
-  bio: "Turning ideas into functional, elegant code since 2021",
+    "A developer who crafts digital experiences with attention to detail and clean architecture.",
+  bio: "Turning your ideas into reality",
 
   // Tech Stack
   techStack: [
-    "TypeScript",
-    "React",
     "Next.js",
+    "TypeScript",
     "Node.js",
     "Python",
-    "PostgreSQL",
+    "Laravel",
+    "Supabase",
+    "React Native",
+    "Arduino",
+    "Visual Basic",
+    "C#",
   ],
 
   // Stats
@@ -37,58 +44,136 @@ const config = {
   services: [
     "Web Development",
     "UI/UX Design",
-    "Mobile Apps",
+    "Automation Solutions",
     "Backend Systems",
+    "Mobile Apps",
   ],
 
   // Social Links
   socials: [
     { name: "GitHub", href: "https://github.com/dreidev04" },
-    { name: "LinkedIn", href: "https://linkedin.com/in/yourusername" },
-    { name: "Twitter", href: "https://twitter.com/yourusername" },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/john-andrei-tacujan-123ry/",
+    },
+    { name: "Facebook", href: "https://www.facebook.com/iamjohnandrei/" },
   ],
 
   // Projects
   projects: [
     {
       id: 1,
-      title: "ChainAid",
-      category: "Blockchain / Web3",
+      title: "Thesis: LegalBERT",
+      category: "AI / NLP",
       description:
-        "A transparent donation platform built on the Base network for NGOs.",
-      image: "/projects/chainaid.jpg",
+        "We're currently developing a legal document analysis tool using BERT, achieving 99% accuracy on test cases. Expected completion in 2026. ",
+      image: "/",
       link: "#",
-      year: "2024",
+      year: "2025",
     },
     {
       id: 2,
-      title: "SignSpeak AI",
-      category: "Machine Learning",
+      title: "Go Baluyot & Adion Website",
+      category: "Web Development",
       description:
-        "Real-time sign language recognition using computer vision and deep learning.",
-      image: "/projects/signspeak.jpg",
-      link: "#",
-      year: "2024",
+        "Developer of a known law firm in Tarlac, featuring a clean design and smooth UX.",
+      image: "/",
+      link: "https://gobaluyotadion.vercel.app",
+      year: "2025",
     },
     {
       id: 3,
-      title: "LegalBERT Thesis",
-      category: "NLP / Research",
+      title: "ProgDen Website",
+      category: "Web Development / Leadership",
       description:
-        "Automated legal document classification system using Transformer models.",
-      image: "/projects/thesis.jpg",
-      link: "#",
-      year: "2023",
+        "Lead developer for the official website of Programmers' Den, a student org with 500+ members.",
+      image: "/",
+      link: "https://tsu-ccs-programmers-den.vercel.app",
+      year: "2025",
     },
+
     {
       id: 4,
-      title: "ModBot v3",
-      category: "Automation",
+      title: "ChainAid",
+      category: "Web3 / Base Sepolia",
       description:
-        "Discord bot managing 100k+ users with auto-moderation and raffles.",
-      image: "/projects/bot.jpg",
+        "A decentralized platform connecting donors and beneficiaries using blockchain for transparency. A hackathon project in RAITE 2025.",
+      image: "/",
       link: "#",
+      year: "2025",
+    },
+  ],
+
+  // Philosophy / About text
+  philosophy: [
+    "Good design is obvious. Great engineering is transparent. I build at the precise intersection of both.",
+    "My approach is methodical. I don't just write code to make things work—I architect systems that scale and interfaces that users actually want to touch.",
+    "Based in Tarlac, PH. Engineering digital experiences that feel inevitable.",
+  ],
+
+  // Currently Exploring
+  exploring: ["AI/ML", "CI/CD", "Cloud Architecture", "Data Science"],
+
+  // Journey / Timeline
+  journey: [
+    {
+      year: "2026",
+      title: "B.S. Computer Science (Cum Laude Track)",
+      desc: "Finalizing my degree with a deep focus on NLP. Currently developing an automated legal document classification system using LegalBERT.",
+    },
+    {
+      year: "2024-2025",
+      title: "Freelancer",
+      desc: "Working with clients to build websites, automation tools, and custom software solutions.",
+    },
+    {
       year: "2023",
+      title: "Full Stack Transition",
+      desc: "Expanded my skill set to include backend development and DevOps. ",
+    },
+    {
+      year: "2022",
+      title: "Frontend Development",
+      desc: "Dived into React and modern web ecosystems, focusing on building polished, interactive user interfaces.",
+    },
+    {
+      year: "2021",
+      title: "Hello World",
+      desc: "Wrote my very first line of code. The curiosity started here.",
+    },
+  ],
+
+  // Certificates
+  certificates: [
+    {
+      title: "CS50: Introduction to Computer Science",
+      issuer: "Harvard University / edX",
+      year: "2024",
+      link: "https://certificates.cs50.io/d416f013-d46c-4b4e-926e-4018dbc3413f.pdf",
+    },
+    {
+      title: "CCNA 1 & CCNA 2",
+      issuer: "Cisco Networking Academy",
+      year: "2024",
+      link: "#",
+    },
+    {
+      title: "Front End Development Libraries",
+      issuer: "freeCodeCamp",
+      year: "2023",
+      link: "https://www.freecodecamp.org/certification/_iamjohnandrei/front-end-development-libraries",
+    },
+    {
+      title: "Javascript Algorithms and Data Structures",
+      issuer: "freeCodeCamp",
+      year: "2023",
+      link: "https://www.freecodecamp.org/certification/_iamjohnandrei/javascript-algorithms-and-data-structures",
+    },
+    {
+      title: "Responsive Web Design",
+      issuer: "freeCodeCamp",
+      year: "2022",
+      link: "https://www.freecodecamp.org/certification/_iamjohnandrei/responsive-web-design",
     },
   ],
 };

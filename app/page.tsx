@@ -1,15 +1,15 @@
 import { Hero } from "@/components/Hero";
-import { Work } from "@/components/Work";
-import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
+import { ProjectPreview } from "@/components/ProjectPreview";
+import { AboutPreview } from "@/components/AboutPreview";
+import { ContactPreview } from "@/components/ContactPreview";
 
 export default function Page() {
   return (
     <div>
       <Hero />
-      <Work />
-      <About />
-      <Contact />
+      <ProjectPreview />
+      <AboutPreview />
+      <ContactPreview />
     </div>
   );
 }
