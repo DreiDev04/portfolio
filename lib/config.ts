@@ -5,6 +5,12 @@ const config = {
     last: "Tacujan",
     full: "John Andrei Tacujan",
   },
+  title: "Drei's Portfolio | John Andrei Tacujan - Software Developer",
+  description:
+    "Full-stack developer specializing in Next.js, React, and automation. Building elegant digital solutions with clean code and thoughtful design.",
+  keywords: "software developer, next.js, react, web developer, full-stack, automation, freelancer, tarlac",
+  url: "https://johnandrei.dev", 
+  phone: "+63 916 752 7177", 
   photos: {
     me: "/me/1.png",
   },
@@ -67,7 +73,7 @@ const config = {
       category: "AI / NLP",
       description:
         "We're currently developing a legal document analysis tool using BERT, achieving 99% accuracy on test cases. Expected completion in 2026. ",
-      image: "/",
+      image: "/projects/THESIS.png",
       link: "#",
       year: "2025",
     },
@@ -77,7 +83,7 @@ const config = {
       category: "Web Development",
       description:
         "Developer of a known law firm in Tarlac, featuring a clean design and smooth UX.",
-      image: "/",
+      image: "/projects/GBA-WEBSITE.png",
       link: "https://gobaluyotadion.vercel.app",
       year: "2025",
     },
@@ -87,7 +93,7 @@ const config = {
       category: "Web Development / Leadership",
       description:
         "Lead developer for the official website of Programmers' Den, a student org with 500+ members.",
-      image: "/",
+      image: "/projects/PROGDEN-WEBSITE.png",
       link: "https://tsu-ccs-programmers-den.vercel.app",
       year: "2025",
     },
@@ -98,7 +104,7 @@ const config = {
       category: "Web3 / Base Sepolia",
       description:
         "A decentralized platform connecting donors and beneficiaries using blockchain for transparency. A hackathon project in RAITE 2025.",
-      image: "/",
+      image: "/projects/CHAINAID.png",
       link: "#",
       year: "2025",
     },

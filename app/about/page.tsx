@@ -1,9 +1,22 @@
-"use client";
-
+import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import config from "@/lib/config";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "About — John Andrei Tacujan",
+    description: "Learn about my journey as a software developer, my expertise in web development, automation, and the philosophy behind my work.",
+    openGraph: {
+      title: "About Me",
+      description: "Software developer with 3+ years of experience in web development and automation",
+      type: "profile",
+      url: `${config.url}/about`,
+      images: [config.photos.me],
+    },
+  };
+}
 
 export default function AboutPage() {
   return (

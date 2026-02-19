@@ -29,7 +29,9 @@ export function ProjectPreview() {
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter uppercase leading-[0.9] text-foreground">
                 Project
-                <span className="text-muted-foreground/40 ml-2 sm:ml-4">Archive</span>
+                <span className="text-muted-foreground/40 ml-2 sm:ml-4">
+                  Archive
+                </span>
               </h2>
             </div>
 
@@ -46,10 +48,11 @@ export function ProjectPreview() {
 
       {/* PROJECT LIST - Show first 4 pinned projects */}
       {config.projects.slice(0, 4).map((project, index) => (
-        <Link
+        <a
           key={project.id}
           href={project.link}
           className="group block border-b border-border hover:bg-muted transition-colors"
+          target="_blank"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12">
             {/* INDEX */}
@@ -91,10 +94,12 @@ export function ProjectPreview() {
               <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-1 md:mb-2">
                 Year
               </span>
-              <span className="text-lg md:text-xl font-bold text-foreground">{project.year}</span>
+              <span className="text-lg md:text-xl font-bold text-foreground">
+                {project.year}
+              </span>
             </div>
           </div>
-        </Link>
+        </a>
       ))}
 
       {/* FOOTER CTA */}
@@ -102,7 +107,8 @@ export function ProjectPreview() {
         <div className="hidden md:block md:col-span-2 lg:col-span-1 border-r border-border" />
         <div className="md:col-span-10 lg:col-span-11 p-4 sm:p-6 md:p-8 lg:p-16 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
           <p className="text-base sm:text-lg text-muted-foreground max-w-md">
-            Interested in working together? I&apos;m always open to discussing new projects and creative ideas.
+            Interested in working together? I&apos;m always open to discussing
+            new projects and creative ideas.
           </p>
           <Link
             href="/contact"
