@@ -4,25 +4,39 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import config from "@/lib/config";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInLeft, staggerContainer, staggerItem, defaultViewport } from "@/components/motion";
 
 export function ProjectPreview() {
   return (
     <section id="project" className="text-foreground">
       {/* SECTION HEADER */}
-      <div className="border-b border-border">
+      <motion.div 
+        className="border-b border-border"
+        initial="hidden"
+        whileInView="visible"
+        viewport={defaultViewport}
+        variants={staggerContainer}
+      >
         <div className="grid grid-cols-1 md:grid-cols-12">
           {/* LEFT: SECTION NUMBER */}
-          <div className="md:col-span-2 border-b md:border-b-0 md:border-r border-border p-4 sm:p-6 md:p-8">
+          <motion.div 
+            className="md:col-span-2 border-b md:border-b-0 md:border-r border-border p-4 sm:p-6 md:p-8"
+            variants={fadeInLeft}
+          >
             <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-2">
               Section
             </span>
             <span className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter text-foreground">
               01
             </span>
-          </div>
+          </motion.div>
 
           {/* RIGHT: HEADLINE + LINK */}
-          <div className="md:col-span-10 p-4 sm:p-6 md:p-8 lg:p-16 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6">
+          <motion.div 
+            className="md:col-span-10 p-4 sm:p-6 md:p-8 lg:p-16 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6"
+            variants={fadeInUp}
+          >
             <div>
               <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-2 sm:mb-4">
                 Selected Projects
@@ -42,17 +56,21 @@ export function ProjectPreview() {
               View All
               <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* PROJECT LIST - Show first 4 pinned projects */}
       {config.projects.slice(0, 4).map((project, index) => (
-        <a
+        <motion.a
           key={project.id}
           href={project.link}
           className="group block border-b border-border hover:bg-muted transition-colors"
           target="_blank"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={defaultViewport}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12">
             {/* INDEX */}
@@ -99,11 +117,17 @@ export function ProjectPreview() {
               </span>
             </div>
           </div>
-        </a>
+        </motion.a>
       ))}
 
       {/* FOOTER CTA */}
-      <div className="grid grid-cols-1 md:grid-cols-12">
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={defaultViewport}
+        transition={{ duration: 0.5 }}
+      >
         <div className="hidden md:block md:col-span-2 lg:col-span-1 border-r border-border" />
         <div className="md:col-span-10 lg:col-span-11 p-4 sm:p-6 md:p-8 lg:p-16 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
           <p className="text-base sm:text-lg text-muted-foreground max-w-md">
@@ -120,7 +144,7 @@ export function ProjectPreview() {
             <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
           </Link>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

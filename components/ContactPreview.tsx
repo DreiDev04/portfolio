@@ -3,25 +3,39 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import config from "@/lib/config";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInLeft, staggerContainer, defaultViewport } from "@/components/motion";
 
 export function ContactPreview() {
   return (
     <section id="contact" className="bg-muted text-foreground">
       {/* HEADER */}
-      <div className="border-b border-border">
+      <motion.div 
+        className="border-b border-border"
+        initial="hidden"
+        whileInView="visible"
+        viewport={defaultViewport}
+        variants={staggerContainer}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12">
           {/* SECTION NUMBER */}
-          <div className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-border p-6 lg:p-8">
+          <motion.div 
+            className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-border p-6 lg:p-8"
+            variants={fadeInLeft}
+          >
             <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-2">
               Section
             </span>
             <span className="text-6xl lg:text-7xl font-bold tracking-tighter text-foreground">
               03
             </span>
-          </div>
+          </motion.div>
 
           {/* HEADLINE */}
-          <div className="lg:col-span-10 p-8 lg:p-16">
+          <motion.div 
+            className="lg:col-span-10 p-8 lg:p-16"
+            variants={fadeInUp}
+          >
             <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-4">
               Get in Touch
             </span>
@@ -30,12 +44,18 @@ export function ContactPreview() {
               <br />
               <span className="text-muted-foreground/40">Together</span>
             </h2>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* EMAIL */}
-      <div className="border-b border-border">
+      <motion.div 
+        className="border-b border-border"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={defaultViewport}
+        transition={{ duration: 0.5 }}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12">
           <div className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-border p-6 lg:p-8">
             <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
@@ -52,10 +72,16 @@ export function ContactPreview() {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* FOOTER */}
-      <div className="grid grid-cols-1 lg:grid-cols-12">
+      <motion.div 
+        className="grid grid-cols-1 lg:grid-cols-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={defaultViewport}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
         <div className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-border p-6 lg:p-8">
           <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
             Connect
@@ -64,17 +90,21 @@ export function ContactPreview() {
         <div className="lg:col-span-10 p-8 lg:p-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           {/* SOCIALS */}
           <div className="flex flex-wrap gap-6 lg:gap-8">
-            {config.socials.map((social) => (
-              <a
+            {config.socials.map((social, index) => (
+              <motion.a
                 key={social.name}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-2 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={defaultViewport}
+                transition={{ delay: index * 0.1 }}
               >
                 {social.name}
                 <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-              </a>
+              </motion.a>
             ))}
           </div>
 
@@ -95,7 +125,7 @@ export function ContactPreview() {
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

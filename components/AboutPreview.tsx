@@ -3,36 +3,56 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import config from "@/lib/config";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, defaultViewport } from "@/components/motion";
 
 export function AboutPreview() {
   return (
     <section id="about" className="bg-background text-foreground">
       {/* TOP GRID - HERO STATEMENT */}
-      <div className="border-b border-border">
+      <motion.div 
+        className="border-b border-border"
+        initial="hidden"
+        whileInView="visible"
+        viewport={defaultViewport}
+        variants={staggerContainer}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12">
           {/* LEFT: SECTION NUMBER */}
-          <div className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-border p-6 lg:p-8">
+          <motion.div 
+            className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-border p-6 lg:p-8"
+            variants={fadeInLeft}
+          >
             <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-2">
               Section
             </span>
             <span className="text-6xl lg:text-7xl font-bold tracking-tighter text-foreground">
               02
             </span>
-          </div>
+          </motion.div>
 
           {/* RIGHT: BIG HEADLINE */}
-          <div className="lg:col-span-10 p-8 lg:p-16 flex flex-col justify-center">
+          <motion.div 
+            className="lg:col-span-10 p-8 lg:p-16 flex flex-col justify-center"
+            variants={fadeInUp}
+          >
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tighter uppercase leading-[0.9] text-foreground">
               A Developer
               <br />
               <span className="text-muted-foreground/40">Who Designs</span>
             </h2>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* MIDDLE GRID - BIO + STATS */}
-      <div className="border-b border-border">
+      <motion.div 
+        className="border-b border-border"
+        initial="hidden"
+        whileInView="visible"
+        viewport={defaultViewport}
+        variants={staggerContainer}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12">
           {/* LEFT: LABEL */}
           <div className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-border p-6 lg:p-8">
@@ -42,7 +62,10 @@ export function AboutPreview() {
           </div>
 
           {/* CENTER: BIO TEXT */}
-          <div className="lg:col-span-6 border-b lg:border-b-0 lg:border-r border-border p-8 lg:p-16">
+          <motion.div 
+            className="lg:col-span-6 border-b lg:border-b-0 lg:border-r border-border p-8 lg:p-16"
+            variants={fadeInUp}
+          >
             <div className="max-w-lg">
               <p className="text-xl md:text-2xl font-light leading-relaxed text-foreground mb-8">
                 I&apos;m <span className="font-semibold">{config.name.full}</span>—a software 
@@ -57,28 +80,44 @@ export function AboutPreview() {
                 with aesthetic sensibility to build products that feel inevitable.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT: STATS */}
-          <div className="lg:col-span-4 p-8 lg:p-16">
+          <motion.div 
+            className="lg:col-span-4 p-8 lg:p-16"
+            variants={fadeInRight}
+          >
             <div className="space-y-12">
               {config.stats.map((stat, index) => (
-                <div key={index} className="group">
+                <motion.div 
+                  key={index} 
+                  className="group"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={defaultViewport}
+                  transition={{ delay: index * 0.15 }}
+                >
                   <span className="block text-5xl md:text-6xl font-bold tracking-tighter text-foreground mb-2">
                     {stat.number}
                   </span>
                   <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                     {stat.label}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* BOTTOM GRID - SERVICES + STATUS */}
-      <div className="grid grid-cols-1 lg:grid-cols-12">
+      <motion.div 
+        className="grid grid-cols-1 lg:grid-cols-12"
+        initial="hidden"
+        whileInView="visible"
+        viewport={defaultViewport}
+        variants={staggerContainer}
+      >
         {/* LEFT: LABEL */}
         <div className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-border p-6 lg:p-8">
           <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
@@ -89,9 +128,13 @@ export function AboutPreview() {
         {/* CENTER: SERVICES LIST */}
         <div className="lg:col-span-6 border-b lg:border-b-0 lg:border-r border-border">
           {config.services.map((service, index) => (
-            <div
+            <motion.div
               key={service}
               className="flex items-center justify-between p-6 lg:px-16 lg:py-6 border-b border-border last:border-b-0 group hover:bg-muted transition-colors"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={defaultViewport}
+              transition={{ delay: index * 0.1 }}
             >
               <div className="flex items-center gap-6">
                 <span className="text-[10px] font-mono text-muted-foreground/60">
@@ -102,12 +145,15 @@ export function AboutPreview() {
                 </span>
               </div>
               <ArrowUpRight className="w-5 h-5 text-muted-foreground/40 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* RIGHT: CTA + STATUS */}
-        <div className="lg:col-span-4 p-8 lg:p-16 flex flex-col justify-between min-h-[300px]">
+        <motion.div 
+          className="lg:col-span-4 p-8 lg:p-16 flex flex-col justify-between min-h-[300px]"
+          variants={fadeInRight}
+        >
           {/* STATUS */}
           <div>
             <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground block mb-4">
@@ -131,8 +177,8 @@ export function AboutPreview() {
             </span>
             <ArrowUpRight className="w-5 h-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
