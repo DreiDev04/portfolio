@@ -9,7 +9,9 @@ const config = {
   description:
     "Full-stack developer specializing in Next.js, React, and automation. Building elegant digital solutions with clean code and thoughtful design.",
   keywords: "software developer, next.js, react, web developer, full-stack, automation, freelancer, tarlac",
-  url: "https://dreidevs-portfolio-v2.vercel.app", 
+  url: "https://dreidevs-portfolio-v2.vercel.app",
+  ogImage: "/og-image.png",
+  resumeUrl: "/resume.pdf", 
   phone: "+63 916 752 7177", 
   photos: {
     me: "/me/1.png",

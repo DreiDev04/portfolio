@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/admin", "/private"],
     },
-    sitemap: "https://johnandrei.dev/sitemap.xml", // Update with your domain
-    host: "https://johnandrei.dev", // Update with your domain
+    sitemap: "https://dreidevs-portfolio-v2.vercel.app/sitemap.xml",
+    host: "https://dreidevs-portfolio-v2.vercel.app",
   };
 }

@@ -13,6 +13,14 @@ export const metadata: Metadata = {
     description: config.description,
     type: "website",
     url: config.url,
+    images: [
+      {
+        url: `${config.url}${config.ogImage}`,
+        width: 1200,
+        height: 630,
+        alt: config.name.full,
+      },
+    ],
   },
 };
 

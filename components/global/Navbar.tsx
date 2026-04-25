@@ -53,6 +53,16 @@ export function Navbar() {
 
         {/* RIGHT SIDE */}
         <div className="flex items-stretch">
+          {/* RESUME LINK */}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden lg:flex items-center gap-2 px-6 border-l border-border text-[10px] uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+          >
+            Resume
+          </a>
+
           {/* STATUS INDICATOR */}
           <div className="hidden lg:flex items-center gap-2 px-6 border-l border-border">
             <span className={`w-2 h-2 rounded-full ${config.available ? "bg-emerald-500" : "bg-amber-500"}`} />
@@ -103,6 +113,14 @@ export function Navbar() {
                 </Link>
               );
             })}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-4 text-sm uppercase tracking-[0.2em] border-b border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            >
+              Resume
+            </a>
           </div>
         </div>
       )}

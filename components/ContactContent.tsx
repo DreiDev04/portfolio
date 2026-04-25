@@ -5,6 +5,7 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import config from "@/lib/config";
 import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, staggerContainer, defaultViewport } from "@/components/motion";
+import { ResumeDownload } from "@/components/ResumeDownload";
 
 export function ContactContent() {
   return (
@@ -178,6 +179,34 @@ export function ContactContent() {
                 <ArrowUpRight className="w-6 h-6 lg:w-8 lg:h-8 text-muted-foreground/40 group-hover:text-primary transition-all group-hover:-translate-y-1 group-hover:translate-x-1" />
               </motion.a>
             ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* RESUME SECTION */}
+      <motion.div 
+        className="border-b border-border"
+        initial="hidden"
+        whileInView="visible"
+        viewport={defaultViewport}
+        variants={staggerContainer}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12">
+          <div className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-border p-6 lg:p-8">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+              Resume
+            </span>
+          </div>
+          <div className="lg:col-span-10 p-8 lg:p-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+            <div>
+              <p className="text-lg md:text-xl font-light text-foreground mb-4">
+                Want to learn more about my professional background and experience?
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Download my comprehensive resume to see my full work history, skills, and achievements.
+              </p>
+            </div>
+            <ResumeDownload />
           </div>
         </div>
       </motion.div>

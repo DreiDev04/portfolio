@@ -11,6 +11,14 @@ export async function generateMetadata(): Promise<Metadata> {
       description: "Let's work together on your next project",
       type: "website",
       url: `${config.url}/contact`,
+      images: [
+        {
+          url: `${config.url}${config.ogImage}`,
+          width: 1200,
+          height: 630,
+          alt: "Get in Touch - John Andrei Tacujan",
+        },
+      ],
     },
   };
 }

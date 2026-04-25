@@ -11,7 +11,14 @@ export async function generateMetadata(): Promise<Metadata> {
       description: "Software developer with 3+ years of experience in web development and automation",
       type: "profile",
       url: `${config.url}/about`,
-      images: [config.photos.me],
+      images: [
+        {
+          url: `${config.url}${config.photos.me}`,
+          width: 800,
+          height: 600,
+          alt: "John Andrei Tacujan",
+        },
+      ],
     },
   };
 }

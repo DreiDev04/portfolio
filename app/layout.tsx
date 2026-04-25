@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   keywords: config.keywords,
   authors: [{ name: config.name.full, url: config.url }],
   creator: config.name.full,
-  metadataBase: new URL(config.url || "dreidevs-portfolio.vercel.app"),
+  metadataBase: new URL(config.url),
   alternates: {
     canonical: "/",
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description: config.description,
     images: [
       {
-        url: "/og-image.png",
+        url: config.ogImage,
         width: 1200,
         height: 630,
         alt: config.name.full,
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: config.title,
     description: config.description,
-    images: ["/og-image.png"],
+    images: [config.ogImage],
   },
   robots: {
     index: true,

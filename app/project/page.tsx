@@ -10,6 +10,14 @@ export const metadata: Metadata = {
     description: "Full stack web development projects and solutions",
     type: "website",
     url: `${config.url}/project`,
+    images: [
+      {
+        url: `${config.url}${config.ogImage}`,
+        width: 1200,
+        height: 630,
+        alt: "John Andrei Tacujan - Projects",
+      },
+    ],
   },
 };
 

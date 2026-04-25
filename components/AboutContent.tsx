@@ -6,6 +6,7 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import config from "@/lib/config";
 import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, defaultViewport } from "@/components/motion";
+import { ResumeDownload } from "@/components/ResumeDownload";
 
 export function AboutContent() {
   return (
@@ -346,6 +347,27 @@ export function AboutContent() {
               </motion.a>
             ))}
           </div>
+        </div>
+      </motion.div>
+
+      {/* CTA FOOTER */}
+      <motion.div 
+        className="grid grid-cols-1 lg:grid-cols-12 border-t border-border"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={defaultViewport}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-border p-6 lg:p-8">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+            Resume
+          </span>
+        </div>
+        <div className="lg:col-span-10 p-8 lg:p-16 flex align-center justify-between " >
+          <p className="text-lg md:text-xl font-light text-foreground mb-8">
+            Download my resume to learn more about my experience, skills, and professional background.
+          </p>
+          <ResumeDownload />
         </div>
       </motion.div>
 
