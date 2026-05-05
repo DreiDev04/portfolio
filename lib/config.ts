@@ -110,6 +110,16 @@ const config = {
       link: "#",
       year: "2025",
     },
+        {
+      id: 4,
+      title: "TSU Clone Website",
+      category: "Web Development",
+      description:
+        "A clone of the official Tarlac State University website, built to practice responsive design and modern web development techniques.",
+      image: "/projects/TSU-CLONE.png",
+      link: "https://tsu-clone.vercel.app",
+      year: "2024",
+    },
   ],
 
   // Philosophy / About text

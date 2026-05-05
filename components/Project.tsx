@@ -11,7 +11,7 @@ export function Project() {
   return (
     <section id="project" className="text-foreground">
       {/* SECTION HEADER */}
-      <motion.div 
+      <motion.div
         className="border-b border-border"
         initial="hidden"
         whileInView="visible"
@@ -20,7 +20,7 @@ export function Project() {
       >
         <div className="grid grid-cols-1 md:grid-cols-12">
           {/* LEFT: SECTION NUMBER */}
-          <motion.div 
+          <motion.div
             className="md:col-span-2 border-b md:border-b-0 md:border-r border-border p-4 sm:p-6 md:p-8"
             variants={fadeInLeft}
           >
@@ -33,7 +33,7 @@ export function Project() {
           </motion.div>
 
           {/* RIGHT: HEADLINE + LINK */}
-          <motion.div 
+          <motion.div
             className="md:col-span-10 p-4 sm:p-6 md:p-8 lg:p-16 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6"
             variants={fadeInUp}
           >
@@ -42,7 +42,7 @@ export function Project() {
                 Selected Projects
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter uppercase leading-[0.9] text-foreground">
-                Project 
+                Project
                 <span className="text-muted-foreground/40 ml-2 sm:ml-4">Archive</span>
               </h2>
             </div>
@@ -61,7 +61,7 @@ export function Project() {
       {/* PROJECT LIST */}
       {config.projects.map((project, index) => (
         <motion.a
-          key={project.id}
+          key={index}
           href={project.link}
           className="group block border-b border-border hover:bg-background transition-colors"
           target="_blank"
@@ -117,7 +117,7 @@ export function Project() {
       ))}
 
       {/* FOOTER CTA */}
-      <motion.div 
+      <motion.div
         className="grid grid-cols-1 md:grid-cols-12"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
