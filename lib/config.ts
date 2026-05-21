@@ -7,19 +7,19 @@ const config = {
   },
   title: "Drei's Portfolio | John Andrei Tacujan - Software Developer",
   description:
-    "Full-stack developer specializing in Next.js, React, and automation. Building elegant digital solutions with clean code and thoughtful design.",
-  keywords: "software developer, next.js, react, web developer, full-stack, automation, freelancer, tarlac",
+    "Full-stack developer specializing in Next.js,FastAPI, React, and automation. Building elegant digital solutions with clean code and thoughtful design.",
+  keywords: "software developer,full-stack developer, next.js,FastAPI, react, web developer, full-stack, automation, freelancer, tarlac",
   url: "https://dreidevs-portfolio-v2.vercel.app",
   ogImage: "/og-image.png",
-  resumeUrl: "/John_Tacujan_Full_Stack_Developer_0526.pdf", 
-  phone: "+63 916 752 7177", 
+  resumeUrl: "/John_Tacujan_Full_Stack_Developer_0526.pdf",
+  phone: "+63 916 752 7177",
   photos: {
     me: "/me/1.png",
   },
   available: true,
   role: "Software Developer",
   location: "Tarlac, PH",
-  focus: "Web Development & Automation",
+  focus: "Full Stack Development, Automation, AI/ML",
   email: "tacujan.andrei@gmail.com",
   github: "https://github.com/dreidev04",
   tagline: "Building digital experiences with precision and care",
@@ -71,11 +71,11 @@ const config = {
   projects: [
     {
       id: 1,
-      title: "Thesis: LegalBERT",
-      category: "AI / NLP",
+      title: "GBA Law Office Court Case Management System",
+      category: "Full Stack Development with AI / NLP",
       description:
-        "We're currently developing a legal document analysis tool using BERT, achieving 99% accuracy on test cases. Expected completion in 2026. ",
-      image: "/projects/THESIS.png",
+        "We develop a legal document analysis tool using LegalBERT, achieving 99.68% accuracy on test cases. Successfully defended our thesis and showcasing the potential of AI in legal tech.",
+      image: "/projects/THESIS-V4.png",
       link: "#",
       year: "2025",
     },
@@ -110,12 +110,12 @@ const config = {
       link: "#",
       year: "2025",
     },
-        {
+    {
       id: 4,
       title: "TSU Clone Website",
-      category: "Web Development",
+      category: "Front End Case Study",
       description:
-        "A clone of the official Tarlac State University website, built to practice responsive design and modern web development techniques.",
+        "A front-end case study where I recreated the Tarlac State University website using Next.js and Tailwind CSS, focusing on pixel-perfect design and responsive layout.",
       image: "/projects/TSU-CLONE.png",
       link: "https://tsu-clone.vercel.app",
       year: "2024",
