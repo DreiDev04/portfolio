@@ -11,7 +11,7 @@ const config = {
   keywords: "software developer, next.js, react, web developer, full-stack, automation, freelancer, tarlac",
   url: "https://dreidevs-portfolio-v2.vercel.app",
   ogImage: "/og-image.png",
-  resumeUrl: "/resume.pdf", 
+  resumeUrl: "/John_Tacujan_Full_Stack_Developer_0526.pdf", 
   phone: "+63 916 752 7177", 
   photos: {
     me: "/me/1.png",

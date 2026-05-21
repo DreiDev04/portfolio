@@ -55,7 +55,7 @@ export function Navbar() {
         <div className="flex items-stretch">
           {/* RESUME LINK */}
           <a
-            href="/resume.pdf"
+            href={config.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:flex items-center gap-2 px-6 border-l border-border text-[10px] uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
@@ -114,7 +114,7 @@ export function Navbar() {
               );
             })}
             <a
-              href="/resume.pdf"
+              href={config.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-4 text-sm uppercase tracking-[0.2em] border-b border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
